@@ -1,0 +1,83 @@
+<?php
+
+// Iniciar la sesión
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener los datos del formulario
+    $utente = $_POST["utente"];
+    $password = $_POST["password"];
+
+    // Realizar la validación de inicio de sesión
+    if ($usuario == "WEB11\jusseppe" && $password == "Tecno2023!") {
+        // Los datos de inicio de sesión son correctos
+        // Redirigir al usuario a la página de dashboard
+        header("Location: dashboard.html");
+        exit();
+    } else {
+        // Los datos de inicio de sesión son incorrectos
+        $error = "Nombre de usuario o contraseña incorrectos";
+    }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Accedi | Area riservata</title>
+	
+	
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'><link rel="stylesheet" href="css/style_loguin.css">
+	<link rel="icon" href="img/Tecnoprogress_logo-affix.svg" type="image/png">
+</head>
+<body>
+	<header>
+		
+		<div class="nav-container">
+			
+			<nav >
+				<img src="img/Tecnoprogress_logo.svg">
+			<ul>
+				<li><a href="index.html">Casa</a></li>
+				<li><a>|</a></li>
+				<li><a href="loguin.html">Area riservata</a></li>
+			</ul>
+			</nav>
+		</div>
+	</header>
+
+<div class="login-container">
+	<form action="loguin.php" class="form-login">
+		<ul class="login-nav">
+			<li class="login-nav__item active">
+				<a href="#">Accedi</a>
+			</li>
+		</ul>
+		<label for="login-input-user" class="login__label">
+			Utente
+		</label>
+		<input id="login-input-user" class="login__input" type="text" />
+		<label for="login-input-password" class="login__label">
+			Password
+		</label>
+		<input id="login-input-password" class="login__input" type="password" />
+		<label for="login-sign-up" class="login__label--checkbox">
+			<input id="login-sign-up" type="checkbox" class="login__input--checkbox" />
+			tienimi connesso
+		</label>
+		<button class="login__submit" >Accedi</button>
+		
+	</form>
+	
+</div>
+
+
+<!-- partial -->
+<script  src="js/script_loguin.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" href="img/Tecnoprogress_logo-affix.svg" type="image/png">
+    <!-- CDN para los graficos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <title>Dashboard | Area riservata</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            opacity: 70%;
+        }
+        thead{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>💻Dashboard</h2>
+        <ul>
+            <li><a href="#dashboard" onclick="showDashboard()">Dashboard</a></li>
+            <li><a href="#domande" onclick="showDomande()">Questionari</a></li>
+            <li><a href="#utenti" onclick="showUtenti()">Utenti</a></li>
+            <li><a href="#uscita"onclick="showUscita()">Uscita</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div id="dashboard" class="tab-content">
+            <h1>Dashboard</h1>
+            <div id="box"></div>
+
+        </div>
+
+        <div id="domande" class="tab-content">
+            <h1>Questionari</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Utente</th>
+                        <th>domande</th>
+                        <th>Risposti</th>
+                        <th>Punteggio</th>
+                    </tr>
+                </thead>
+                <tbody id="listDomande"></tbody>
+            </table>
+        </div>
+
+        <div id="utenti" class="tab-content">
+            <h1>Utenti</h1>
+            <table>
+                <thead>
+                    <tr class="th-list">
+                        <th>Nome</th>
+                        <th>Cognome</th>
+                        <th>Azienda/hotel</th>
+                        <th>Citta</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody id="listUtenti"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function showDashboard() {
+            // Ocultar todos los contenidos y mostrar solo el dashboard
+            hideAllTabs();
+            document.getElementById("dashboard").style.display = "block";
+        }
+
+        function showDomande() {
+            // Ocultar todos los contenidos y mostrar solo las preguntas
+            hideAllTabs();
+            document.getElementById("domande").style.display = "block";
+
+            // Lógica para mostrar la lista de preguntas y respuestas
+            var listDomande = document.getElementById("listDomande");
+            listDomande.innerHTML = ""; // Limpiar la lista
+
+            // Ejemplo de datos estáticos
+            var domandeRisposti = [
+                { nome: "utente1", domande: ["domanda 1", "domanda 2", "domanda 3"], risposti: ["Risposta 1", "Risposta 2", "Risposta 3"], punteggio: 25 },
+                { nome: "utente2", domande: ["domanda 1", "domanda 2"], risposti: ["Risposta 1", "Risposta 2"], punteggio: 15 },
+                { nome: "utente3", domande: ["domanda 1", "domanda 2", "domanda 3", "domanda 4"], risposti: ["Risposta 1", "Risposta 2", "Risposta 3", "Risposta 4"], punteggio: 30 }
+            ];
+
+            // Mostrar la lista de preguntas y respuestas en la página
+            for (var i = 0; i < domandeRisposti.length; i++) {
+                var domandaRisposta = domandeRisposti[i];
+                var row = listRisposti.insertRow();
+                row.innerHTML = `
+                    <td>${domandaRisposta.utente}</td>
+                    <td>${domandaRisposta.domande.join("<br>")}</td>
+                    <td>${domandaRisposta.risposti.join("<br>")}</td>
+                    <td>${domandaRisposta.punteggio}</td>
+                `;
+            }
+        }
+
+        function showUtenti() {
+            hideAllTabs();
+            document.getElementById("utenti").style.display = "block";
+
+            var listUtenti = document.getElementById("listUtenti");
+            listUtenti.innerHTML = ""; 
+            
+            var utenti = [
+                { nome: "utente1", cognome: "Cognome1", azienda: "Azienda1", citta: "Citta1", email: "email1@example.com", telefono: "1234567890" },
+                { nome: "utente2", cognome: "Cognome2", azienda: "Azienda2", citta: "Citta2", email: "email2@example.com", telefono: "9876543210" },
+                { nome: "utente3", cognome: "Cognome3", azienda: "Azienda3", citta: "Citta3", email: "email3@example.com", telefono: "5678901234" }
+            ];
+
+            // Mostra la lista di utenti nella pagina
+            for (var i = 0; i < utenti.length; i++) {
+                var utente = utenti[i];
+                var row = listUtenti.insertRow();
+                row.innerHTML = `
+                    <td>${utente.nome}</td>
+                    <td>${utente.cognome}</td>
+                    <td>${utente.azienda}</td>
+                    <td>${utente.citta}</td>
+                    <td>${utente.email}</td>
+                    <td>${utente.telefono}</td>
+                `;
+            }
+        }
+        //funcion para salir del dashboard y me envia al loguin pero que una ves que salga no pueda volver a entrar sin loguearse
+        function showUscita() {
+            window.location.href = "loguin.html";
+            document.getElementById("uscita").style.display = "block";
+        }
+
+        function hideAllTabs() {
+            // Ocultar todos los contenidos de las pestañas
+            var tabs = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+        }
+    </script>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
