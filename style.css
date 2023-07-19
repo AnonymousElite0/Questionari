@@ -1,0 +1,174 @@
+
+
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 700px;
+    height: 730px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://www.tecnoprogress.net/assets/images/pages/home/team.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+
+
+h2 {
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+}
+
+#preguntas label {
+    display: block;
+    margin-bottom: 40px;
+    background-color: #f2f2f2;
+    border-radius: 4%;
+}
+#pregunta1_respuesta label {
+    display: block;
+    margin-bottom: 40px;
+    background-color: #f2f2f2;
+    border-radius: 4%;
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 4%;
+}
+
+
+
+input[type="text"],
+input[type="email"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+#indicativo{
+    width: 10%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.8);
+
+}
+input[type="tel"]{
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#btnSeguente{
+    background-color: blue;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#btnSeguente:hover{
+    background-color: #ba7433;
+}
+
+button[type="submit"] {
+    background-color: blue;
+    margin-top: 20px;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #ba7433;
+    
+}
+
+.hidden {
+    display: none;
+}
+
+ /* NAVEGATION */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 30px;
+}
+
+.nav-container nav {
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+}
+
+.nav-container nav li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.nav-container nav li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+}
+.nav-container nav li a:hover {
+    color: #ba7433;
+}
+
+ 
+
